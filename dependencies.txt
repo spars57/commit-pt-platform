@@ -1,0 +1,12 @@
+@auth/drizzle-adapter@^1.10.0
+@neondatabase/serverless@^1.0.1
+discord.js@^14.22.1
+drizzle-orm@^0.44.2
+dotenv@^16.4.7
+lucide-react@^0.468.0
+next@15.1.4
+next-auth@5.0.0-beta.25
+next-mdx-remote@^5.0.0
+react@^19.0.0
+react-dom@^19.0.0
+zlib-sync@^0.1.9
