@@ -12,7 +12,8 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:seed": "tsx --env-file=.env.local db/seed.ts",
-    "install:deps": "node scripts/install-dependencies.mjs"
+    "install:deps": "node scripts/install-dependencies.mjs",
+    "deploy-vercel": "yarn db:migrate && yarn db:generate && yarn build"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "1.10.0",
