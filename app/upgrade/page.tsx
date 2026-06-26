@@ -1,4 +1,14 @@
-export default function UpgradePage() {
+import { redirect } from "next/navigation";
+
+import { auth } from "@/auth";
+
+export default async function UpgradePage() {
+  const session = await auth();
+
+  if (session?.user?.isPremium) {
+    redirect("/dashboard");
+  }
+
   return (
     <div className="mx-auto max-w-2xl rounded-2xl border border-amber-500/30 bg-amber-500/10 p-8">
       <h1 className="text-3xl font-bold text-amber-100">Precisas do cargo Commit+</h1>
