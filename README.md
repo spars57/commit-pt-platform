@@ -60,54 +60,26 @@ The bot is needed to look up a user's roles in your server when they log in.
 4. Enable **Developer Mode** in Discord (User Settings → Advanced), then right-click your server to copy its ID → `DISCORD_SERVER_ID`.
 5. Right-click the premium role in your server to copy its ID → `DISCORD_PREMIUM_ROLE_ID`.
 
-### 3. Install Dependencies
+### 3. Run with Docker
+
+Make sure `.env.local` is filled in (steps 1–2 above) first.
 
 ```bash
-yarn install
+docker compose build
+docker compose up -d
 ```
 
-If the project uses a `dependencies.txt` file for tracking packages, run:
+Then check:
 
 ```bash
-yarn install:deps
+docker compose ps
+docker compose logs -f
 ```
 
-### 4. Run Database Migrations
-
-Make sure `.env.local` is filled in, then run:
+Stop when done:
 
 ```bash
-# Generate migration files from the schema
-yarn db:generate
-
-# Apply migrations to the database
-yarn db:migrate
-```
-
-For local development, you can skip the generate step and push the schema directly:
-
-```bash
-yarn db:push
-```
-
-### 5. Seed the Database
-
-```bash
-yarn db:seed
-```
-
-This creates one course with three lessons to test against:
-
-| Lesson | Access |
-|---|---|
-| Hello, World | Free |
-| Variables | Premium |
-| Functions | Premium |
-
-### 6. Start the Dev Server
-
-```bash
-yarn dev
+docker compose down
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
