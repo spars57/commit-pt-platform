@@ -34,7 +34,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
                 <div className="hidden items-center gap-6 text-sm text-slate-400 md:flex">
                   <Link className="transition hover:text-white" href="/courses">Cursos</Link>
                   <Link className="transition hover:text-white" href="/roadmap">Roadmap</Link>
-                  <Link className="transition hover:text-white" href="/upgrade">Commit+</Link>
+                  {!isPremium && (
+                    <Link className="transition hover:text-white" href="/upgrade">Commit+</Link>
+                  )}
                 </div>
                 <div className="flex items-center gap-3">
                   {name ? (
