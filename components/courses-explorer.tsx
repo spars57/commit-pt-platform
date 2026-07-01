@@ -119,7 +119,7 @@ export function CoursesExplorer({ courses }: { courses: CourseCard[] }) {
       {/* Grid */}
       {filtered.length === 0 ? (
         <p className="rounded-2xl border border-white/5 bg-[#0e1220] p-10 text-center text-slate-500">
-          Nenhum curso encontrado para "{query}".
+          Nenhum curso encontrado para &quot;{query}&quot;.
         </p>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
