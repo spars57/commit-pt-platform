@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { auth } from "@/auth";
 import { getCourseBySlug, getLessonsByCourseId } from "@/lib/courses";
