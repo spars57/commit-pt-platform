@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { User, Settings, BookOpen, SunMoon } from "lucide-react";
 
 import { signOutUser } from "@/app/actions/auth";
 
@@ -51,13 +52,16 @@ export function UserMenu({ name, avatar, isPremium }: Props) {
           </div>
           <div className="py-1">
             <Link className="flex items-center gap-3 px-4 py-2 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white" href="/profile" onClick={() => setOpen(false)}>
-              <span>👤</span> Perfil
+              <User className="h-5 w-5" /> Perfil
             </Link>
             <Link className="flex items-center gap-3 px-4 py-2 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white" href="/account" onClick={() => setOpen(false)}>
-              <span>⚙️</span> Conta
+              <Settings className="h-5 w-5" /> Conta
             </Link>
             <Link className="flex items-center gap-3 px-4 py-2 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white" href="/dashboard" onClick={() => setOpen(false)}>
-              <span>📚</span> Os meus cursos
+              <BookOpen className="h-5 w-5" /> Os meus cursos
+            </Link>
+            <Link className="flex items-center gap-3 px-4 py-2 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white" href="/dashboard" onClick={() => setOpen(false)}>
+              <SunMoon className="h-5 w-5" /> Theme
             </Link>
           </div>
           <div className="border-t border-white/5 py-1">
