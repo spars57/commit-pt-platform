@@ -6,6 +6,8 @@ import "./globals.css";
 import { auth } from "@/auth";
 import { UserMenu } from "@/components/user-menu";
 import { Providers } from "./providers";
+import { BookOpen, Map, User, Settings, BellPlus, Link as LinkIcon } from "lucide-react";
+import { Tooltip } from "@/components/tool-tip";
 
 export const metadata: Metadata = {
   title: "CommitPT",
@@ -38,9 +40,16 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
                   {name ? (
                     <>
                       <div className="hidden items-center gap-1 text-sm text-slate-400 md:flex">
-                        <Link className="rounded-lg px-3 py-2 transition hover:bg-white/5 hover:text-white" href="/dashboard">Aprender</Link>
-                        <Link className="rounded-lg px-3 py-2 transition hover:bg-white/5 hover:text-white" href="/profile">Perfil</Link>
-                        <Link className="rounded-lg px-3 py-2 transition hover:bg-white/5 hover:text-white" href="/account">Conta</Link>
+                        <Tooltip label="Aprender">
+                        <Link className="flex items-center justify-center rounded-lg px-3 py-2 transition hover:bg-white/5 hover:text-white" href="/dashboard">
+                        <BookOpen className="h-6 w-6" />
+                        </Link>
+                        </Tooltip>
+                        <Tooltip label="Notificações">
+                        <Link className="flex items-center justify-center rounded-lg px-3 py-2 transition hover:bg-white/5 hover:text-white" href="/account">
+                        <BellPlus className="h-6 w-6" />
+                        </Link>
+                        </Tooltip>
                       </div>
                       <UserMenu avatar={avatar} isPremium={isPremium} name={name} />
                     </>
