@@ -8,6 +8,8 @@ import { UserMenu } from "@/components/user-menu";
 import { Providers } from "./providers";
 import { BookOpen, Map, User, Settings, BellPlus, Link as LinkIcon } from "lucide-react";
 import { Tooltip } from "@/components/tool-tip";
+import { Dropdown } from "@/components/dropdown";
+import { UpgradeButton } from "@/components/upgrade-button";
 
 export const metadata: Metadata = {
   title: "CommitPT",
@@ -23,6 +25,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="pt">
       <body>
+        {/* Left sidebar */}
         <Providers>
           <div className="min-h-screen">
             <header className="sticky top-0 z-50 border-b border-white/5 bg-[#080b14]/90 backdrop-blur-md">
@@ -31,16 +34,16 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
                   <span className="grid h-8 w-8 place-items-center rounded-lg bg-indigo-500 text-sm font-black">{'</>'}</span>
                   <span>CommitPT</span>
                 </Link>
+
+                {/* Navigation links */}
                 <div className="hidden items-center gap-6 text-sm text-slate-400 md:flex">
-                  <Link className="transition hover:text-white" href="/courses">Cursos</Link>
+                  <Dropdown trigger={<span>Cursos</span>} items={[{ label: 'Cursos', href: '/courses' }]} />
                   <Link className="transition hover:text-white" href="/roadmap">Roadmap</Link>
-                  {!isPremium && (
-                    <Link className="transition hover:text-white" href="/upgrade">Commit+</Link>
-                  )}
                 </div>
                 <div className="flex items-center gap-3">
                   {name ? (
                     <>
+                    {/* Action buttons */}
                       <div className="hidden items-center gap-1 text-sm text-slate-400 md:flex">
                         <Tooltip label="Aprender">
                         <Link className="flex items-center justify-center rounded-lg px-3 py-2 transition hover:bg-white/5 hover:text-white" href="/dashboard">
@@ -54,9 +57,13 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
                         </Tooltip>
                       </div>
                       <UserMenu avatar={avatar} isPremium={isPremium} name={name} />
+                      {!isPremium && (
+                        <UpgradeButton />
+                      )}
                     </>
                   ) : (
                     <>
+                    {/* Login/Signup buttons */}
                       <Link className="rounded-lg px-4 py-2 text-sm text-slate-300 transition hover:text-white" href="/login">
                         Entrar
                       </Link>
